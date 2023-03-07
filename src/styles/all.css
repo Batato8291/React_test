@@ -20,46 +20,31 @@ ul {
 nav {
   background-color: plum;
 }
-
 nav ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
   justify-content: flex-end;
   margin-right: 3rem;
 }
-
 nav ul li {
   padding: 0.5rem 1rem;
 }
-
 nav ul li a {
   font-size: 1.5rem;
   color: white;
 }
 
 .search {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   padding: 3rem 2rem;
 }
-
 .search input,
 .search button {
   font-size: 2rem;
   padding: 0.25rem;
   border: 3px solid plum;
 }
-
 .search button {
   background-color: plum;
   color: white;
@@ -67,17 +52,10 @@ nav ul li a {
 }
 
 .footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   font-size: 1.5rem;
   background-color: gray;
   color: white;
-}
-/*# sourceMappingURL=all.css.map */
+}/*# sourceMappingURL=all.css.map */
