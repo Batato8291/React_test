@@ -14,6 +14,21 @@ ul {
   list-style-type: none;
 }
 
+.morePictures {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+  button {
+    padding: 0.25rem 0.5rem;
+    font-size: 2rem;
+    border: none;
+    background-color: plum;
+    color: white;
+    cursor: pointer;
+  }
+}
+
 @import "./nav";
 @import "./search";
 @import "./footer";

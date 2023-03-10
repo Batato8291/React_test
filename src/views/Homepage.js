@@ -1,46 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Search from "../components/Search";
 import "../styles/all.css";
 import Picture from "../components/Picture";
 
 const Homepage = () => {
   const [input, setInput] = useState("");
-  const searchURL = `https://api.pexels.com/v1/search?query=${input}&per_page=15&page=1`;
   let [data, setData] = useState(null);
   const auth = "563492ad6f917000010000018ce14e8891404799a12c0e9b7898cf2c";
   const intialURL = "https://api.pexels.com/v1/curated?page=1&per_page=15";
-  const search = async () => {
-    console.log("searchhhhh!");
-    const dataFetch = await fetch(intialURL, {
+  const searchURL = `https://api.pexels.com/v1/search?query=${input}&per_page=15&page=1`;
+
+  const search = async (url) => {
+    const dataFetch = await fetch(url, {
       method: "GET",
       headers: {
         Accept: "application/json",
-        Authorization: auth
-      }
+        Authorization: auth,
+      },
     });
     // console.log("aaa", await dataFetch.json());
     let parseData = await dataFetch.json();
-    console.log("eee");
-    setData(parseData);
+
+    setData(parseData.photos);
   };
+  // 先執行一次search()
+  useEffect(() => {
+    search(intialURL);
+  }, []);
   return (
     <div
       style={{
-        minHeight: "80vh"
+        minHeight: "80vh",
       }}
     >
-      <h1>this is homepage</h1>
+      <h1 style={{ margin: ".5rem 2rem" }}>this is fucking homepage</h1>
+      {/* search */}
       <Search
         search={() => {
-          search();
+          search(searchURL);
         }}
+        setInput={setInput}
       />
       <div className="pictures">
         {/* 等data收到資料 */}
         {data &&
-          data.photos.map((d) => {
+          data.map((d) => {
             return <Picture key={d.id} data={d} />;
           })}
+      </div>
+      <div className="morePictures">
+        <button>Load More</button>
       </div>
     </div>
   );
